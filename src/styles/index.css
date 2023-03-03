@@ -115,3 +115,7 @@ ul li::before {
   color: red;
   outline: none;
 }
+
+.header-motto {
+  font-size: 0.55em;
+}

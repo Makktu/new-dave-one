@@ -1,8 +1,9 @@
-const Footer = () => {
-  const today = new Date();
+const Footer = ({ amount }) => {
   return (
     <footer>
-      <p>Copyright © {today.getFullYear()}</p>
+      <p>
+        {amount} List {amount === 1 ? "item" : "items"}
+      </p>
     </footer>
   );
 };
