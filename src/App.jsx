@@ -14,22 +14,38 @@ function App() {
 
   const [newItem, setNewItem] = useState("");
 
+  const setAndSaveItems = (newItems) => {
+    setItems(newItems);
+    localStorage.setItem("shoppinglist", JSON.stringify(newItems));
+  };
+
   const handleCheck = (id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
-    setItems(listItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+    setAndSaveItems(listItems);
   };
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
-    setItems(listItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+    setAndSaveItems(listItems);
   };
 
   const handleSubmit = (e) => {
-    console.log("submitted");
+    e.preventDefault();
+    if (!newItem) return;
+    addItem(newItem);
+    setNewItem("");
+  };
+
+  const addItem = (newItem) => {
+    let makeNewItem = {
+      id: items.length + 1,
+      checked: false,
+      item: newItem,
+    };
+    let newItems = [...items, makeNewItem];
+    setAndSaveItems(newItems);
   };
 
   return (
