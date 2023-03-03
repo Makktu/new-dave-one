@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Content from "./Content";
+import AddItem from "./AddItem";
 
 function App() {
   const [items, setItems] = useState([
@@ -10,6 +11,8 @@ function App() {
     { id: 2, checked: true, item: "Milk" },
     { id: 3, checked: false, item: "Tea" },
   ]);
+
+  const [newItem, setNewItem] = useState("");
 
   const handleCheck = (id) => {
     const listItems = items.map((item) =>
@@ -25,6 +28,10 @@ function App() {
     localStorage.setItem("shoppinglist", JSON.stringify(listItems));
   };
 
+  const handleSubmit = (e) => {
+    console.log("submitted");
+  };
+
   return (
     <div className="App">
       <Header title="ScrapPad" motto="a very basic jotting pad" />
@@ -32,6 +39,11 @@ function App() {
         items={items}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
+      />
+      <AddItem
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
       />
       <Footer amount={items.length} />
     </div>
