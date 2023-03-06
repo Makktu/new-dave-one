@@ -7,7 +7,7 @@ const Content = ({ items, handleCheck, handleDelete }) => {
   return (
     <>
       <main>
-        {items.length ? null : <h1>List is Empty</h1>}
+        {items.length ? null : <p>The list is empty</p>}
         <ItemList
           items={items}
           handleCheck={handleCheck}
