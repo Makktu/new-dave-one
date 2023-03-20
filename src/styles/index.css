@@ -9,6 +9,8 @@ html {
 }
 
 body {
+  background: rgb(13, 13, 50);
+  color: whitesmoke;
   min-height: 100vh;
   font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
@@ -31,7 +33,7 @@ body {
 header {
   width: 100%;
   padding: 0 0.25em;
-  background-color: mediumblue;
+  background-color: rgb(1, 1, 52);
   color: aliceblue;
   display: flex;
   justify-content: space-between;
@@ -51,7 +53,7 @@ main {
 footer {
   width: 100%;
   padding: 0.25em;
-  background-color: mediumblue;
+  background-color: rgb(6, 6, 7);
   color: aliceblue;
   display: grid;
   place-content: center;
@@ -73,7 +75,7 @@ ul li::before {
   align-items: center;
   padding: 0.5rem 0 0.5rem 0.5rem;
   margin: 0.25rem 0;
-  background-color: #eee;
+  background-color: #122866;
 }
 
 .item:first-child {
@@ -143,6 +145,8 @@ ul li::before {
   border-radius: 0.25rem;
   margin-right: 0.25rem;
   outline: none;
+  background: rgb(1, 1, 52);
+  color: whitesmoke;
 }
 
 button {
@@ -185,6 +189,8 @@ button:hover {
   padding: 0.25rem;
   border-radius: 0.25rem;
   outline: none;
+  background: rgb(0, 0, 210);
+  color: whitesmoke;
 }
 
 .searchForm {
@@ -209,4 +215,12 @@ button:hover {
   padding: 0.25rem;
   border-radius: 0.25rem;
   outline: none;
+}
+
+.error-msg {
+  color: yellow;
+  background-color: rgb(232, 6, 6);
+  margin: 0.5em;
+  padding: 10px;
+  border-radius: 5px;
 }
