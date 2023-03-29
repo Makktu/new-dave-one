@@ -39,6 +39,26 @@ function App() {
 
   // ___________________________________________
 
+  const addItem = async (newItem) => {
+    let makeNewItem = {
+      id: items.length + 1,
+      checked: false,
+      item: newItem,
+    };
+    let newItems = [...items, makeNewItem];
+    setItems(newItems);
+
+    const postOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(myNewItem),
+    };
+    const result = await apiRequest(API_URL, postOptions);
+    if (result) setFetchError(result);
+  };
+
   const handleCheck = (id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
@@ -56,16 +76,6 @@ function App() {
     if (!newItem) return;
     addItem(newItem);
     setNewItem("");
-  };
-
-  const addItem = (newItem) => {
-    let makeNewItem = {
-      id: items.length + 1,
-      checked: false,
-      item: newItem,
-    };
-    let newItems = [...items, makeNewItem];
-    setItems(newItems);
   };
 
   return (
